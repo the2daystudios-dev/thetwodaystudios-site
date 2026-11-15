@@ -3,132 +3,123 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>2 Day Studios · AI-native creative agency</title>
-<meta name="description" content="2 Day Studios is an AI-native creative agency. Reels, branding, websites, ads and AI automation for brands that want to be noticed.">
-<meta property="og:title" content="2 Day Studios · AI-native creative agency">
-<meta property="og:description" content="Your business goes in. Everything it needs comes out: reels, branding, websites, ads, AI automation.">
+<title>2 DAY STUDIOS. · AI-native creative agency</title>
+<meta name="description" content="2 Day Studios is an AI-native creative agency for Indian brands. Reels, branding, websites, ads and AI automation.">
+<meta property="og:title" content="2 DAY STUDIOS. · AI-native creative agency">
+<meta property="og:description" content="Your business goes in. Everything it needs comes out. Reels, branding, websites, ads, AI automation.">
 <meta property="og:image" content="https://thetwodaystudios.in/og.jpg">
 <meta property="og:url" content="https://thetwodaystudios.in/">
-<meta name="theme-color" content="#07060b">
-<link rel="icon" href="logo.png">
-<link rel="preload" href="Archivo-D75-900.ttf" as="font" type="font/ttf" crossorigin>
+<meta name="theme-color" content="#A60402">
+<link rel="icon" href="logo2ds.webp">
+<link rel="preload" href="archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="app.js" as="script" crossorigin>
+<link rel="preload" href="redpaper.jpg" as="image">
 <style>
-@font-face{font-family:D;src:url(Archivo-D75-900.ttf) format('truetype');font-display:swap}
-@font-face{font-family:B;src:url(Archivo-800.ttf) format('truetype');font-display:swap}
-@font-face{font-family:R;src:url(Archivo-600.ttf) format('truetype');font-display:swap}
-:root{--ink:#07060b;--cream:#f4ecdc;--red:#e5322a;--red2:#ff5a43;--gold:#f2c94c;--mut:#9d968c}
+@font-face{font-family:A;src:url(archivo.woff2) format('woff2');font-weight:500 900;font-stretch:62% 75%;font-display:swap}
+:root{--red:#A60402;--deep:#7E0301;--cream:#F1E8D6;--dim:#E4D8BF;--ink:#000}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{background:var(--ink);color:var(--cream);font-family:R,system-ui,sans-serif}
+html{background:var(--red) url(redpaper.jpg) 0 0/300px;color:var(--cream);font-family:A,"Arial Narrow",Arial,sans-serif;font-weight:500}
 body{overflow-x:hidden}
-#gl{position:fixed;inset:0;width:100vw;height:100vh;display:block;z-index:0;touch-action:pan-y}
-.vig{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 50% 42%,transparent 40%,rgba(7,6,11,.75) 100%)}
-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 18px 12px}
-nav img{height:36px}
-.btn{font-family:B;font-size:15px;color:#fff;background:var(--red);border:0;border-radius:99px;padding:12px 20px;text-decoration:none;box-shadow:0 8px 30px rgba(229,50,42,.5);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:transform .15s}
-.btn:active{transform:scale(.96)}
-/* stage */
+#gl{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;opacity:0;transition:opacity .6s;touch-action:pan-y}
+.ready #gl{opacity:1}
+.d{font-weight:900;font-stretch:68%;text-transform:uppercase;line-height:.9;letter-spacing:-.005em}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 16px 10px}
+nav img{height:46px;transform:rotate(-4deg);filter:drop-shadow(0 8px 10px rgba(60,0,0,.4))}
+.btn{display:inline-block;background:var(--cream);color:var(--ink);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:12px 18px;font-weight:900;font-stretch:75%;text-transform:uppercase;letter-spacing:.01em;font-size:17px;text-decoration:none;cursor:pointer;transition:transform .08s,box-shadow .08s;font-family:inherit}
+.btn:active{transform:translate(5px,5px);box-shadow:1px 1px 0 var(--ink)}
+.btn.big{font-size:21px;padding:16px 26px;box-shadow:7px 7px 0 var(--ink)}
 #stage{position:relative;z-index:2;height:100svh;pointer-events:none}
-.copy{position:absolute;left:0;right:0;bottom:calc(26px + env(safe-area-inset-bottom));padding:0 20px;max-width:470px;margin:0 auto}
-.kick{font-family:B;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:flex;gap:10px;align-items:center;margin-bottom:12px}
-.kick:before{content:"";width:22px;height:2px;background:var(--gold)}
-.num{font-family:D;color:var(--red2);font-size:15px;letter-spacing:.1em;height:18px;margin-bottom:6px}
-h1{font-family:D;font-weight:900;text-transform:uppercase;line-height:.92;font-size:clamp(36px,9.6vw,46px);min-height:1.84em;display:block;text-shadow:0 10px 50px rgba(0,0,0,.7)}
-h1 span{display:inline-block}
-h1 .w{display:inline-block;margin-right:.18em;opacity:0;transform:translateY(.5em) rotate(4deg);filter:blur(6px);transition:all .55s cubic-bezier(.2,.9,.2,1)}
-h1 .w.in{opacity:1;transform:none;filter:none}
-h1 em{font-style:normal;color:var(--red2)}
-.sub{font-size:15px;line-height:1.45;color:#d6cdbf;max-width:520px;margin-top:10px;min-height:2.9em;transition:opacity .4s}
-.pills{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;pointer-events:auto}
-.pills button{font-family:B;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--cream);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:9px 13px;cursor:pointer;backdrop-filter:blur(8px);position:relative;overflow:hidden}
-.pills button.on{background:var(--cream);color:var(--ink);border-color:var(--cream)}
-.pills button i{position:absolute;left:0;bottom:0;height:2px;background:var(--red);width:0}
-.pills button.on i{animation:prog var(--d,3.6s) linear forwards}
-@keyframes prog{to{width:100%}}
-.go{margin-top:20px;pointer-events:auto;display:flex;gap:14px;align-items:center}
-.go small{color:var(--mut);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
-/* form */
-#start{position:relative;z-index:3;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:90px 18px calc(40px + env(safe-area-inset-bottom))}
-.card{width:100%;max-width:560px;border-radius:30px;padding:30px 22px;background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);box-shadow:0 40px 120px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.12)}
-.card h2{font-family:D;text-transform:uppercase;font-size:clamp(40px,11vw,64px);line-height:.92}
-.card h2 em{font-style:normal;color:var(--red2)}
-.card p.l{color:#cfc6b6;margin:10px 0 6px;font-size:15px}
-.f{position:relative;margin-top:14px}
-.f input,.f textarea{width:100%;background:rgba(0,0,0,.35);border:1.5px solid rgba(255,255,255,.14);border-radius:16px;padding:22px 16px 9px;color:var(--cream);font-family:R;font-size:16px;outline:none;transition:border .2s,background .2s}
-.f textarea{min-height:84px;resize:none}
-.f label{position:absolute;left:17px;top:16px;color:var(--mut);font-size:15px;pointer-events:none;transition:all .18s}
-.f input:focus,.f textarea:focus{border-color:var(--red2);background:rgba(0,0,0,.5)}
-.f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label{top:7px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.copy{position:absolute;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom));padding:0 18px;max-width:470px;margin:0 auto}
+.kick{font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.num{font-weight:900;font-stretch:75%;font-size:15px;letter-spacing:.08em;text-transform:uppercase;min-height:18px;margin-bottom:6px;color:var(--cream)}
+h1{font-size:clamp(36px,10.4vw,48px);min-height:1.85em;color:var(--cream)}
+h1 .w{display:inline-block;margin-right:.16em;opacity:0;transform:rotate(-14deg) scale(1.35);transition:transform .7s cubic-bezier(.2,1.6,.4,1),opacity .25s}
+h1 .w.in{opacity:1;transform:none}
+h1 .tag{position:relative;isolation:isolate;color:var(--ink);padding:.06em .16em .02em;margin-right:.16em;display:inline-block}
+h1 .tag::before,h1 .tag::after{content:"";position:absolute;inset:0;clip-path:polygon(0 0,calc(100% - .32em) 0,100% .32em,100% 100%,0 100%)}
+h1 .tag::after{background:var(--ink);transform:translate(.09em,.09em);z-index:-2}
+h1 .tag::before{background:var(--cream);box-shadow:inset 0 0 0 3px var(--ink);z-index:-1}
+.sub{font-size:16px;line-height:1.45;color:var(--dim);margin-top:12px;min-height:2.9em;transition:opacity .3s}
+.pills{display:flex;gap:7px;margin-top:16px;flex-wrap:wrap;pointer-events:auto}
+.pills button{font-family:inherit;font-weight:900;font-stretch:75%;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--cream);background:transparent;border:2px solid var(--cream);padding:7px 11px;cursor:pointer}
+.pills button.on{background:var(--cream);color:var(--ink);border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.go{margin-top:18px;pointer-events:auto;display:flex;gap:14px;align-items:center}
+.go small{color:var(--dim);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+/* form = cream print card */
+#start{position:relative;z-index:3;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:92px 16px calc(36px + env(safe-area-inset-bottom))}
+.card{width:100%;max-width:540px;background:var(--cream) url(cream.jpg) 0 0/256px;color:var(--ink);border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:26px 20px 28px;position:relative}
+.card::before{content:"";position:absolute;top:-3px;right:-3px;width:46px;height:46px;background:var(--red);clip-path:polygon(0 0,100% 100%,100% 0)}
+.card h2{font-size:clamp(46px,13vw,68px)}
+.card h2 span{color:var(--red)}
+.card p.l{margin:10px 0 2px;font-size:15px;line-height:1.45}
+.f{margin-top:12px}
+.f label{display:block;font-weight:900;font-stretch:75%;text-transform:uppercase;font-size:13px;letter-spacing:.06em;margin-bottom:6px}
+.f input,.f textarea{width:100%;background:#fffaf0;border:3px solid var(--ink);padding:13px 13px;font-family:inherit;font-weight:500;font-size:16px;color:var(--ink);outline:none;border-radius:0;transition:box-shadow .12s,transform .12s}
+.f input:focus,.f textarea:focus{box-shadow:5px 5px 0 var(--red);transform:translate(-2px,-2px)}
+.f textarea{min-height:76px;resize:none}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
-.q{font-family:B;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:20px 0 10px}
+.q{font-weight:900;font-stretch:75%;text-transform:uppercase;font-size:13px;letter-spacing:.06em;margin:18px 0 8px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips label{cursor:pointer}
 .chips input{display:none}
-.chips span{display:inline-block;border:1.5px solid rgba(255,255,255,.16);border-radius:99px;padding:10px 14px;font-family:B;font-size:14px;transition:.15s}
-.chips input:checked+span{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 6px 22px rgba(229,50,42,.45);transform:translateY(-1px)}
-#send{width:100%;justify-content:center;margin-top:24px;padding:18px;font-size:18px}
-.err{color:var(--red2);font-size:14px;margin-top:10px;min-height:18px}
-.ok{display:none;text-align:center;padding:24px 4px}
-.ok b{display:block;font-family:D;font-size:52px;text-transform:uppercase;line-height:.95;margin:12px 0}
-.ok p{color:#cfc6b6;line-height:1.5}
-footer{position:relative;z-index:3;text-align:center;color:var(--mut);font-size:13px;padding:0 20px calc(30px + env(safe-area-inset-bottom));line-height:1.8}
-footer a{color:var(--cream)}
+.chips span{display:inline-block;border:2.5px solid var(--ink);background:#fffaf0;padding:8px 12px;font-weight:800;font-size:14px;cursor:pointer;transition:transform .1s,box-shadow .1s}
+.chips input:checked+span{background:var(--red);color:var(--cream);box-shadow:4px 4px 0 var(--ink);transform:translate(-2px,-2px) rotate(-1.5deg)}
+#send{width:100%;margin-top:22px;background:var(--red);color:var(--cream);font-size:22px;padding:17px}
+.err{color:var(--red);font-weight:800;font-size:14px;margin-top:10px;min-height:18px}
+.ok{display:none;text-align:center;padding:18px 0}
+.ok .d{font-size:60px;margin:6px 0 10px}
+.ok .d span{color:var(--red)}
+footer{position:relative;z-index:3;text-align:center;color:var(--dim);font-size:13px;padding:0 20px calc(26px + env(safe-area-inset-bottom));line-height:1.8}
+footer a{color:var(--cream);font-weight:800}
 @media(min-width:900px){
- .copy{left:6vw;right:auto;bottom:auto;top:50%;transform:translateY(-50%);max-width:640px;padding:0;margin:0}
- h1{font-size:clamp(64px,6.4vw,104px)}
- .card{padding:44px}
+ .copy{left:7vw;right:auto;bottom:auto;top:50%;transform:translateY(-50%);max-width:600px;padding:0;margin:0}
+ h1{font-size:clamp(66px,6.4vw,104px)}
+ .card{padding:40px}
 }
 @media(prefers-reduced-motion:reduce){h1 .w{transition:none}}
 </style>
 </head>
 <body>
 <canvas id="gl" aria-hidden="true"></canvas>
-<div class="vig"></div>
-<nav><a href="#top"><img src="logo.png" alt="2 Day Studios"></a><a class="btn" href="#start">Start a project →</a></nav>
-
+<nav><a href="#top"><img src="logo2ds.webp" alt="2 DAY STUDIOS." width="40" height="47"></a><a class="btn" href="#start">Start a project →</a></nav>
 <section id="stage">
   <div class="copy">
-    <div class="kick">AI-native creative agency</div>
+    <div class="kick">2 DAY STUDIOS. · AI-native creative agency</div>
     <div class="num" id="num"></div>
-    <h1 id="h"></h1>
+    <h1 class="d" id="h"></h1>
     <p class="sub" id="sub"></p>
     <div class="pills" id="pills"></div>
-    <div class="go"><a class="btn" href="#start">Start a project →</a><small>Free brand audit</small></div>
+    <div class="go"><a class="btn big" href="#start">Start a project →</a><small>Free brand audit</small></div>
   </div>
 </section>
-
 <section id="start">
   <div class="card">
-    <form id="f" novalidate autocomplete="on">
-      <h2>Let's build <em>yours.</em></h2>
-      <p class="l">Two minutes. We'll reply on WhatsApp with a free audit of your brand.</p>
+    <form id="f" novalidate>
+      <h2 class="d">Let's build <span>yours.</span></h2>
+      <p class="l">Two minutes. We'll WhatsApp you a free audit of your brand.</p>
       <div class="row">
-        <div class="f"><input id="name" name="name" placeholder=" " autocomplete="name"><label for="name">Your name</label></div>
-        <div class="f"><input id="biz" name="business" placeholder=" " autocomplete="organization"><label for="biz">Brand / business</label></div>
+        <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name"></div>
+        <div class="f"><label for="biz">Brand</label><input id="biz" name="business" autocomplete="organization"></div>
       </div>
       <div class="row">
-        <div class="f"><input id="phone" name="phone" type="tel" inputmode="tel" placeholder=" " autocomplete="tel"><label for="phone">WhatsApp</label></div>
-        <div class="f"><input id="ig" name="instagram" placeholder=" "><label for="ig">Instagram @</label></div>
+        <div class="f"><label for="phone">WhatsApp</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"></div>
+        <div class="f"><label for="ig">Instagram</label><input id="ig" name="instagram" placeholder="@"></div>
       </div>
-      <div class="q">What do you need?</div>
-      <div class="chips" id="need"></div>
-      <div class="q">Monthly budget</div>
-      <div class="chips" id="budget"></div>
-      <div class="f"><textarea id="msg" name="message" placeholder=" "></textarea><label for="msg">Anything else? (optional)</label></div>
+      <div class="q">What do you need?</div><div class="chips" id="need"></div>
+      <div class="q">Monthly budget</div><div class="chips" id="budget"></div>
+      <div class="f"><label for="msg">Anything else?</label><textarea id="msg" name="message"></textarea></div>
       <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       <div class="err" id="err"></div>
       <button class="btn" id="send" type="submit">Send it →</button>
     </form>
-    <div class="ok" id="ok"><div style="font-size:52px">☕</div><b>We're on it.</b><p>Your details are in. We'll message you on WhatsApp with your brand audit and next steps.</p></div>
+    <div class="ok" id="ok"><div class="d">We're <span>on it.</span></div><p>Your details are in. We'll WhatsApp you with your brand audit and next steps.</p></div>
   </div>
 </section>
-<footer><a href="https://instagram.com/thetwodaystudio" target="_blank" rel="noopener">@thetwodaystudio</a> · <a href="mailto:the2daystudios@gmail.com">the2daystudios@gmail.com</a><br>© 2026 2 Day Studios · Made in India</footer>
-
+<footer><a href="https://instagram.com/thetwodaystudio" target="_blank" rel="noopener">@thetwodaystudio</a> · <a href="mailto:the2daystudios@gmail.com">the2daystudios@gmail.com</a><br>© 2026 2 DAY STUDIOS.</footer>
 <script>
 const ENDPOINT="https://script.google.com/macros/s/AKfycbxpapppOszC_BaLIhMUf15WxEtq0v6TKwi2-5cCa5ZrtXrZ8tW5M1ob1YsJ2LSyQ9Wg/exec";
-const SVC=["Reels","Branding","Website","Ads","AI automation","Animated series"];
-const BUD=["Under ₹25k","₹25k–50k","₹50k–1L","₹1L+","Not sure"];
 const chip=(id,name,arr,type)=>document.getElementById(id).innerHTML=arr.map(v=>`<label><input type="${type}" name="${name}" value="${v}"><span>${v}</span></label>`).join('');
-chip('need','need',SVC,'checkbox');chip('budget','budget',BUD,'radio');
+chip('need','need',["Reels","Branding","Website","Ads","AI automation","Animated series"],'checkbox');
+chip('budget','budget',["Under ₹25k","₹25k–50k","₹50k–1L","₹1L+","Not sure"],'radio');
 const f=document.getElementById('f'),err=document.getElementById('err'),btn=document.getElementById('send');
 f.addEventListener('submit',ev=>{ev.preventDefault();err.textContent='';const d=new FormData(f);if(d.get('website'))return;
  const phone=(d.get('phone')||'').replace(/[^\d+]/g,'');
@@ -136,183 +127,25 @@ f.addEventListener('submit',ev=>{ev.preventDefault();err.textContent='';const d=
  const body=new URLSearchParams({name:d.get('name'),business:d.get('business'),phone,instagram:d.get('instagram')||'',city:'',email:'',need:d.getAll('need').join(', '),budget:d.get('budget')||'',message:d.get('message')||'',page:location.href,ua:navigator.userAgent.slice(0,140)});
  btn.disabled=true;btn.textContent='Sending…';let sent=false;try{sent=navigator.sendBeacon&&navigator.sendBeacon(ENDPOINT,body)}catch(e){}
  if(!sent)fetch(ENDPOINT,{method:'POST',mode:'no-cors',body,keepalive:true}).catch(()=>{});
- setTimeout(()=>{f.style.display='none';document.getElementById('ok').style.display='block';window.__burst&&window.__burst();if(window.fbq)fbq('track','Lead')},450)});
-// story copy
+ setTimeout(()=>{f.style.display='none';document.getElementById('ok').style.display='block';if(window.fbq)fbq('track','Lead')},400)});
 window.STORY=[
- {n:"",h:"Your business <em>goes in.</em>",s:"Drop in your brand, your product, your story.",d:2600},
- {n:"",h:"Everything it needs <em>comes out.</em>",s:"One studio. Every piece of your growth, built to work together.",d:2600},
- {n:"01 · Reels",h:"Reels people <em>stop for.</em>",s:"Story-first reels, scripted, voiced and edited. Even full animated series like 1 Baje Wala.",d:3800},
- {n:"02 · Branding",h:"A brand they <em>remember.</em>",s:"Logo, colours, type and templates. One look, everywhere you show up.",d:3800},
- {n:"03 · Websites",h:"Sites that turn <em>visits into leads.</em>",s:"Fast, custom, made for phones. Enquiries land straight in your inbox.",d:3800},
- {n:"04 · Ads",h:"Ads that spend on <em>what works.</em>",s:"Meta ads built on proof: we find what already performs, then scale it.",d:3800},
- {n:"05 · AI automation",h:"Replies at 1&nbsp;AM. <em>Without you.</em>",s:"Comment-to-DM, instant replies and lead capture, running while you sleep.",d:3800}];
-const P=document.getElementById('pills');P.innerHTML=['Reels','Branding','Websites','Ads','AI'].map((t,i)=>`<button data-i="${i+2}">${t}<i></i></button>`).join('');
+ {n:"",h:"Your business [goes in.]",s:"Your product. Your story. Your goals.",d:2600},
+ {n:"",h:"Everything it needs [comes out.]",s:"One studio for all of it, built to work together.",d:2400},
+ {n:"01 · Reels",h:"Content that [stops the scroll.]",s:"Story-first reels: scripted, voiced, edited. Even animated series like 1 Baje Wala.",d:3800},
+ {n:"02 · Branding",h:"A brand they [remember.]",s:"Logo, colour, type and voice. One look everywhere you show up.",d:3800},
+ {n:"03 · Websites",h:"Sites that turn visits [into leads.]",s:"Fast, custom, made for phones. Enquiries land straight in your inbox.",d:3800},
+ {n:"04 · Ads",h:"Ads that spend on [what works.]",s:"Meta ads built on proof: find what already performs, then scale it.",d:3800},
+ {n:"05 · AI automation",h:"Replies at 1&nbsp;AM. [Without you.]",s:"Comment-to-DM, instant replies and lead capture, running while you sleep.",d:3800}];
+const P=document.getElementById('pills');P.innerHTML=['Reels','Branding','Websites','Ads','AI'].map((t,i)=>`<button data-i="${i+2}">${t}</button>`).join('');
 let cur=-1;window.showStage=i=>{if(i===cur)return;cur=i;const s=STORY[i];document.getElementById('num').textContent=s.n;
- const h=document.getElementById('h');h.innerHTML=s.h.replace(/(<em>.*?<\/em>)|([^\s<]+)/g,(m)=>m.startsWith('<em>')?'<em>'+m.slice(4,-5).split(' ').map(w=>`<span class="w">${w}</span>`).join(' ')+'</em>':`<span class="w">${m}</span>`);
- [...h.querySelectorAll('.w')].forEach((w,k)=>setTimeout(()=>w.classList.add('in'),40+k*55));
- const sb=document.getElementById('sub');sb.style.opacity=0;setTimeout(()=>{sb.textContent=s.s;sb.style.opacity=1},180);
- P.querySelectorAll('button').forEach(b=>{b.classList.toggle('on',+b.dataset.i===i);b.style.setProperty('--d',s.d/1000+'s');const ii=b.querySelector('i');ii.style.animation='none';ii.offsetWidth;ii.style.animation=''});};
-P.addEventListener('click',e=>{const b=e.target.closest('button');if(b)window.jumpTo&&window.jumpTo(+b.dataset.i)});
-</script>
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
-<script type="module">
-import * as THREE from 'three';
-import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
-import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
-import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
-import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
-import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
-
-const cv=document.getElementById('gl'),mob=innerWidth<900;
-const R=new THREE.WebGLRenderer({canvas:cv,antialias:!mob,powerPreference:'high-performance'});
-R.setPixelRatio(Math.min(devicePixelRatio,mob?1.6:2));R.setSize(innerWidth,innerHeight);R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.1;R.outputColorSpace=THREE.SRGBColorSpace;
-const S=new THREE.Scene();S.background=new THREE.Color(0x07060b);S.fog=new THREE.Fog(0x07060b,9,26);
-const C=new THREE.PerspectiveCamera(mob?55:42,innerWidth/innerHeight,.1,100);
-const comp=new EffectComposer(R);comp.addPass(new RenderPass(S,C));
-const bloom=new UnrealBloomPass(new THREE.Vector2(innerWidth/(mob?2:1),innerHeight/(mob?2:1)),.8,.5,.93);comp.addPass(bloom);comp.addPass(new OutputPass());
-S.add(new THREE.HemisphereLight(0xfff1dd,0x1a0d10,.9));
-const key=new THREE.DirectionalLight(0xffe2c0,2.2);key.position.set(3,5,6);S.add(key);
-const coreLight=new THREE.PointLight(0xff4a35,30,12,1.6);S.add(coreLight);
-const RED=0xe5322a,CREAM=0xf4ecdc;
-// scene root (offset right on desktop so copy sits left)
-const root=new THREE.Group();S.add(root);root.position.x=mob?0:3.4;root.position.y=mob?2.45:0;
-
-/* ---------- CORE ---------- */
-const core=new THREE.Group();root.add(core);
-const coreMesh=new THREE.Mesh(new THREE.IcosahedronGeometry(.62,2),new THREE.MeshStandardMaterial({color:0x2a0a0a,emissive:RED,emissiveIntensity:1.6,metalness:.4,roughness:.25,flatShading:true}));core.add(coreMesh);
-const shell=new THREE.Mesh(new THREE.IcosahedronGeometry(.95,1),new THREE.MeshBasicMaterial({color:0xff6a50,wireframe:true,transparent:true,opacity:.35}));core.add(shell);
-const ring1=new THREE.Mesh(new THREE.TorusGeometry(1.25,.012,8,160),new THREE.MeshBasicMaterial({color:0xff7055}));ring1.rotation.x=1.2;core.add(ring1);
-const ring2=ring1.clone();ring2.rotation.set(.3,.9,0);core.add(ring2);
-// "2DS" logo sprite in core
-const logoTex=new THREE.TextureLoader().load('logo.png');logoTex.colorSpace=THREE.SRGBColorSpace;
-// orbit track
-const track=new THREE.Mesh(new THREE.TorusGeometry(3,.006,6,200),new THREE.MeshBasicMaterial({color:0x5a2a2a,transparent:true,opacity:.6}));track.rotation.x=Math.PI/2;root.add(track);
-
-/* ---------- helpers ---------- */
-function canvasTex(w,h,draw){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=4;const o={c,x,t,draw,update(time){draw(x,w,h,time);t.needsUpdate=true}};o.update(0);return o}
-const FONT=(s,w=900)=>`${w} ${s}px Archivo, system-ui, sans-serif`;
-function rr(x,X,Y,W,H,r){x.beginPath();x.moveTo(X+r,Y);x.arcTo(X+W,Y,X+W,Y+H,r);x.arcTo(X+W,Y+H,X,Y+H,r);x.arcTo(X,Y+H,X,Y,r);x.arcTo(X,Y,X+W,Y,r);x.closePath()}
-const darkMetal=new THREE.MeshStandardMaterial({color:0x15131a,metalness:.85,roughness:.3});
-
-/* ---------- 0: BUSINESS BOX (intro) ---------- */
-const boxTex=canvasTex(512,512,(x,w,h)=>{x.fillStyle='#cfc4b2';x.fillRect(0,0,w,h);x.strokeStyle='#8f8473';x.lineWidth=10;x.strokeRect(20,20,w-40,h-40);x.fillStyle='#3a332b';x.font=FONT(66);x.textAlign='center';x.fillText('YOUR',w/2,h/2-14);x.fillText('BUSINESS',w/2,h/2+60)});
-const bizBox=new THREE.Mesh(new RoundedBoxGeometry(1.1,1.1,1.1,4,.08),new THREE.MeshStandardMaterial({map:boxTex.t,roughness:.8}));root.add(bizBox);
-
-/* ---------- 1: REELS PHONE ---------- */
-function makePhone(){const g=new THREE.Group();g.add(new THREE.Mesh(new RoundedBoxGeometry(1.0,1.95,.1,6,.12),darkMetal));
- const vids=['ep1.mp4','ep5.mp4','ep2.mp4'];let vi=0;const v=document.createElement('video');v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.crossOrigin='anonymous';v.src=vids[0];v.loop=false;v.onended=()=>{vi=(vi+1)%vids.length;v.src=vids[vi];v.play().catch(()=>{})};
- const poster=new THREE.TextureLoader().load('ep1.jpg');poster.colorSpace=THREE.SRGBColorSpace;
- const mat=new THREE.MeshBasicMaterial({map:poster,color:0xd8d8d8});const scr=new THREE.Mesh(new THREE.PlaneGeometry(.9,1.6),mat);scr.position.z=.056;g.add(scr);
- const vt=new THREE.VideoTexture(v);vt.colorSpace=THREE.SRGBColorSpace;
- g.userData.play=()=>v.play().then(()=>{mat.map=vt;mat.needsUpdate=true}).catch(()=>{});
- // floating hearts
- const hearts=[];const hm=new THREE.MeshBasicMaterial({color:0xff4a5a});const hs=new THREE.Shape();hs.moveTo(0,-.06);hs.bezierCurveTo(-.13,.04,-.06,.13,0,.06);hs.bezierCurveTo(.06,.13,.13,.04,0,-.06);
- for(let i=0;i<5;i++){const m=new THREE.Mesh(new THREE.ShapeGeometry(hs),hm.clone());m.material.transparent=true;m.position.set(.42,-.6,.08);g.add(m);hearts.push({m,o:i/5})}
- g.userData.tick=t=>hearts.forEach(h=>{const p=(t*.35+h.o)%1;h.m.position.set(.42+Math.sin(p*9+h.o*6)*.08,-.6+p*1.4,.08);h.m.scale.setScalar(.6+p);h.m.material.opacity=1-p});
- return g}
-/* ---------- 2: BRAND CARD ---------- */
-function makeBrand(){const g=new THREE.Group();
- const tex=canvasTex(640,800,(x,w,h)=>{x.fillStyle='#f4ecdc';x.fillRect(0,0,w,h);x.fillStyle='#e5322a';rr(x,40,40,w-80,300,26);x.fill();x.fillStyle='#fff';x.font=FONT(150);x.textAlign='center';x.fillText('Aa',w/2,250);
-  const cols=['#e5322a','#07060b','#f2c94c','#3b6b5e','#d9cbb2'];cols.forEach((c,i)=>{x.fillStyle=c;rr(x,40+i*114,370,100,100,18);x.fill()});
-  x.fillStyle='#07060b';x.textAlign='left';x.font=FONT(46);x.fillText('YOUR BRAND',44,560);x.font=FONT(26,600);x.fillStyle='#6d655a';x.fillText('Logo · Colour · Type · Voice',44,606);
-  x.strokeStyle='#07060b';x.lineWidth=3;for(let i=0;i<3;i++){rr(x,44+i*190,650,170,100,14);x.stroke()}});
- const card=new THREE.Mesh(new RoundedBoxGeometry(1.3,1.62,.05,4,.06),[darkMetal,darkMetal,darkMetal,darkMetal,new THREE.MeshStandardMaterial({map:tex.t,roughness:.6}),darkMetal]);g.add(card);
- // logo badge coin
- const ct=canvasTex(256,256,(x,w,h)=>{x.fillStyle='#e5322a';x.fillRect(0,0,w,h);x.fillStyle='#f4ecdc';x.font=FONT(92);x.textAlign='center';x.fillText('2DS',w/2,h/2+32)});const coin=new THREE.Mesh(new THREE.CylinderGeometry(.32,.32,.06,48),[new THREE.MeshStandardMaterial({color:RED,metalness:.6,roughness:.3}),new THREE.MeshBasicMaterial({map:ct.t}),new THREE.MeshBasicMaterial({map:ct.t})]);coin.rotation.x=Math.PI/2;coin.position.set(.62,.78,.12);g.add(coin);
- g.userData.tick=t=>{coin.rotation.y=Math.sin(t*1.4)*.5;};return g}
-/* ---------- 3: WEBSITE ---------- */
-function makeSite(){const g=new THREE.Group();
- const tex=canvasTex(800,560,(x,w,h,t)=>{x.fillStyle='#0f0d14';x.fillRect(0,0,w,h);x.fillStyle='#1d1a24';x.fillRect(0,0,w,46);['#ff5f57','#febc2e','#28c840'].forEach((c,i)=>{x.fillStyle=c;x.beginPath();x.arc(26+i*24,23,7,0,7);x.fill()});
-  x.fillStyle='#2a2631';rr(x,110,12,w-140,22,11);x.fill();x.fillStyle='#bbb';x.font=FONT(14,600);x.fillText('yourbrand.in',126,28);
-  const off=(t*40)%260;x.save();x.beginPath();x.rect(0,46,w,h-46);x.clip();x.translate(0,-off);
-  for(let k=0;k<3;k++){const y=70+k*260;x.fillStyle='#f4ecdc';x.font=FONT(48);x.fillText(k%2?'Book a table.':'Your story,',40,y+60);x.fillStyle='#ff5a43';x.fillText(k%2?'Tonight.':'told well.',40,y+112);
-   x.fillStyle='#e5322a';rr(x,40,y+140,190,48,24);x.fill();x.fillStyle='#fff';x.font=FONT(20,800);x.fillText('Enquire now →',62,y+171);
-   x.fillStyle='#2a2631';rr(x,470,y+20,290,190,18);x.fill();x.fillStyle='#e5322a';x.globalAlpha=.6;x.beginPath();x.arc(615,y+115,48,0,7);x.fill();x.globalAlpha=1}
-  x.restore()});
- const scr=new THREE.Mesh(new RoundedBoxGeometry(1.9,1.33,.06,4,.05),[darkMetal,darkMetal,darkMetal,darkMetal,new THREE.MeshBasicMaterial({map:tex.t,color:0xdddddd}),darkMetal]);g.add(scr);
- // lead notification pill
- const nt=canvasTex(512,128,(x,w,h)=>{x.fillStyle='#f4ecdc';rr(x,4,4,w-8,h-8,60);x.fill();x.fillStyle='#e5322a';x.beginPath();x.arc(64,64,34,0,7);x.fill();x.fillStyle='#fff';x.font=FONT(34);x.textAlign='center';x.fillText('✓',64,76);x.textAlign='left';x.fillStyle='#07060b';x.font=FONT(34);x.fillText('New lead!',118,58);x.font=FONT(24,600);x.fillStyle='#5d564c';x.fillText('Priya · Pune · Reels',118,94)});
- const pill=new THREE.Mesh(new THREE.PlaneGeometry(1.1,.275),new THREE.MeshBasicMaterial({map:nt.t,transparent:true,toneMapped:false}));pill.position.set(.55,.85,.12);g.add(pill);
- g.userData.tick=t=>{tex.update(t);const p=(t*.4)%1;pill.position.y=.62+Math.min(p*4,1)*.3;pill.material.opacity=p<.7?Math.min(p*5,1):Math.max(0,1-(p-.7)*4)};return g}
-/* ---------- 4: ADS GRAPH ---------- */
-function makeAds(){const g=new THREE.Group();const base=new THREE.Mesh(new RoundedBoxGeometry(1.8,.08,1,3,.03),darkMetal);base.position.y=-.75;g.add(base);
- const bars=[];for(let i=0;i<6;i++){const m=new THREE.Mesh(new RoundedBoxGeometry(.2,1,.2,3,.04),new THREE.MeshStandardMaterial({color:i===5?RED:0x3a3440,emissive:i===5?RED:0x000000,emissiveIntensity:i===5?.9:0,metalness:.3,roughness:.4}));m.position.set(-.7+i*.28,-.7,0);g.add(m);bars.push(m)}
- const pts=[];for(let i=0;i<6;i++)pts.push(new THREE.Vector3(-.7+i*.28,0,.15));const line=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),40,.02,6),new THREE.MeshBasicMaterial({color:0xff7a5a}));g.add(line);
- const arrow=new THREE.Mesh(new THREE.ConeGeometry(.09,.2,16),new THREE.MeshBasicMaterial({color:0xff7a5a}));g.add(arrow);
- const ht=[.25,.35,.3,.55,.8,1.35];
- g.userData.tick=t=>{const k=(Math.sin(t*1.2)*.5+.5)*.25+.75;bars.forEach((b,i)=>{const H=ht[i]*k;b.scale.y=H;b.position.y=-.71+H/2;pts[i].y=-.71+H+.1});line.geometry.dispose();line.geometry=new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),40,.02,6);arrow.position.copy(pts[5]).add(new THREE.Vector3(.06,.08,0));arrow.rotation.z=-.5};return g}
-/* ---------- 5: AI CHAT ---------- */
-function makeAI(){const g=new THREE.Group();
- const msgs=[['in','Price kya hai? 🙏'],['out','Hi! Menu + prices sent to your DMs ✅'],['in','Delivery to Pune?'],['out','Yes! 2 options shared. Order link 👇'],['in','Ordered 🎉']];
- const tex=canvasTex(560,760,(x,w,h,t)=>{x.fillStyle='#121017';rr(x,0,0,w,h,40);x.fill();x.fillStyle='#1d1a24';x.fillRect(0,0,w,90);x.fillStyle='#e5322a';x.beginPath();x.arc(60,45,26,0,7);x.fill();x.fillStyle='#fff';x.font=FONT(26);x.fillText('AI',44,55);x.fillStyle='#f4ecdc';x.font=FONT(28,800);x.fillText('2DS Assistant',104,40);x.fillStyle='#4ade80';x.font=FONT(20,600);x.fillText('● replying instantly · 1:07 AM',104,70);
-  const n=Math.floor(t*.9)%(msgs.length+3);let y=120;for(let i=0;i<Math.min(n,msgs.length);i++){const [s,m]=msgs[i];x.font=FONT(24,600);const tw=Math.min(x.measureText(m).width+40,w-120);const X=s==='in'?30:w-30-tw;x.fillStyle=s==='in'?'#2a2631':'#e5322a';rr(x,X,y,tw,58,24);x.fill();x.fillStyle='#fff';x.fillText(m,X+20,y+37);y+=76}
-  if(n<msgs.length){x.fillStyle='#2a2631';rr(x,30,y,96,50,24);x.fill();for(let k=0;k<3;k++){x.fillStyle=`rgba(255,255,255,${.3+.7*((Math.sin(t*8-k)+1)/2)})`;x.beginPath();x.arc(58+k*20,y+25,6,0,7);x.fill()}}});
- const panel=new THREE.Mesh(new RoundedBoxGeometry(1.25,1.7,.06,4,.08),[darkMetal,darkMetal,darkMetal,darkMetal,new THREE.MeshBasicMaterial({map:tex.t,color:0xdddddd}),darkMetal]);g.add(panel);
- // bot head
- const head=new THREE.Group();const hb=new THREE.Mesh(new RoundedBoxGeometry(.5,.38,.36,4,.1),new THREE.MeshStandardMaterial({color:CREAM,roughness:.4}));head.add(hb);
- const eyeM=new THREE.MeshBasicMaterial({color:RED});const e1=new THREE.Mesh(new THREE.SphereGeometry(.045,16,16),eyeM);e1.position.set(-.1,.02,.18);const e2=e1.clone();e2.position.x=.1;head.add(e1,e2);
- const ant=new THREE.Mesh(new THREE.SphereGeometry(.04,12,12),new THREE.MeshBasicMaterial({color:0xff6a50}));ant.position.y=.3;head.add(ant);head.position.set(.62,.95,.2);g.add(head);
- g.userData.tick=t=>{tex.update(t);head.rotation.y=Math.sin(t*1.5)*.4;head.position.y=.95+Math.sin(t*2.2)*.04;const bl=(t%3)<.12?.15:1;e1.scale.y=e2.scale.y=bl};return g}
-
-window.__dbg=()=>({stage,ringAng,ringTarget,pos:svc.map(g=>[+g.position.x.toFixed(2),+g.position.z.toFixed(2),+g.scale.x.toFixed(2)])});
-const svc=[makePhone(),makeBrand(),makeSite(),makeAds(),makeAI()];
-const RAD=mob?2.35:3;track.geometry=new THREE.TorusGeometry(RAD,.006,6,200);
-svc.forEach((g,i)=>{g.userData.a=i/svc.length*Math.PI*2;g.scale.setScalar(.001);root.add(g)});
-// particles
-const PN=mob?500:1100,pg=new THREE.BufferGeometry(),pa=new Float32Array(PN*3),pv=new Float32Array(PN);
-for(let i=0;i<PN;i++){const r=1.5+Math.random()*9,a=Math.random()*6.28,y=(Math.random()-.5)*8;pa[i*3]=Math.cos(a)*r;pa[i*3+1]=y;pa[i*3+2]=Math.sin(a)*r;pv[i]=Math.random()}
-pg.setAttribute('position',new THREE.BufferAttribute(pa,3));
-const sp=document.createElement('canvas');sp.width=sp.height=64;{const x=sp.getContext('2d'),gr=x.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'rgba(255,210,170,1)');gr.addColorStop(1,'rgba(255,210,170,0)');x.fillStyle=gr;x.fillRect(0,0,64,64)}
-const pts=new THREE.Points(pg,new THREE.PointsMaterial({size:.06,map:new THREE.CanvasTexture(sp),transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));root.add(pts);
-// burst particles for transform moment
-const BN=260,bg=new THREE.BufferGeometry(),ba=new Float32Array(BN*3),bvel=[];for(let i=0;i<BN;i++){bvel.push(new THREE.Vector3().randomDirection().multiplyScalar(2+Math.random()*4))}
-bg.setAttribute('position',new THREE.BufferAttribute(ba,3));const burst=new THREE.Points(bg,new THREE.PointsMaterial({size:.09,color:0xff7a55,map:new THREE.CanvasTexture(sp),transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:0}));root.add(burst);
-let burstT=-9;window.__burst=()=>{burstT=clock.getElapsedTime()};
-
-/* ---------- timeline ---------- */
-const clock=new THREE.Clock();
-let stage=0,stageStart=0,ringAng=0,ringTarget=0,drag=false,lx=0,dragVel=0,manual=0;
-const INTRO=[0,1];
-window.jumpTo=i=>{stage=i;stageStart=clock.getElapsedTime();manual=stageStart;showStage(i);svc[0].userData.play&&svc[0].userData.play()};
+ const h=document.getElementById('h');
+ h.innerHTML=s.h.replace(/\[(.*?)\]|([^\s\[]+)/g,(m,tag,w)=>tag?`<span class="w tag">${tag}</span>`:`<span class="w">${w}</span>`);
+ [...h.querySelectorAll('.w')].forEach((w,k)=>setTimeout(()=>w.classList.add('in'),30+k*70));
+ const sb=document.getElementById('sub');sb.style.opacity=0;setTimeout(()=>{sb.textContent=s.s;sb.style.opacity=1},150);
+ P.querySelectorAll('button').forEach(b=>b.classList.toggle('on',+b.dataset.i===i));};
 showStage(0);
-function svcIndex(st){return st-2}
-addEventListener('pointerdown',e=>{if(e.target!==cv&&!e.target.closest('#stage'))return;if(e.target.closest('a,button'))return;drag=true;lx=e.clientX});
-addEventListener('pointermove',e=>{if(!drag)return;dragVel=(e.clientX-lx)*.006;ringAng+=dragVel;lx=e.clientX},{passive:true});
-addEventListener('pointerup',()=>{if(!drag)return;drag=false;if(stage>=2){const step=Math.PI*2/5;const k=Math.round(-ringAng/step);const idx=((k%5)+5)%5;jumpTo(idx+2)}});
-let gx=0,gy=0;addEventListener('deviceorientation',e=>{if(e.gamma==null)return;gx=Math.max(-1,Math.min(1,e.gamma/30));gy=Math.max(-1,Math.min(1,(e.beta-50)/30))});
-addEventListener('mousemove',e=>{gx=e.clientX/innerWidth*2-1;gy=e.clientY/innerHeight*2-1},{passive:true});
-['pointerdown','touchstart','scroll'].forEach(ev=>addEventListener(ev,()=>svc[0].userData.play(),{once:true,passive:true}));
-svc[0].userData.play();
-addEventListener('resize',()=>{C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix();R.setSize(innerWidth,innerHeight);comp.setSize(innerWidth,innerHeight)});
-const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-const tmp=new THREE.Vector3();
-let lastT=0;(function loop(){requestAnimationFrame(loop);const t=clock.getElapsedTime();const dt=Math.min(t-lastT,.1);lastT=t;const k5=1-Math.exp(-dt*5),k3=1-Math.exp(-dt*4);const st=t-stageStart;
- // auto-advance
- if(st*1000>STORY[stage].d){const nx=stage>=6?2:stage+1;stage=nx;stageStart=t;showStage(nx)}
- // intro: box flies into core (stage 0), burst + outputs emerge (stage 1)
- const introP=stage===0?Math.min(st/2.4,1):1;
- bizBox.visible=stage===0&&introP<.98;
- if(bizBox.visible){const p=ease(introP);bizBox.position.set(-(1-p)*3.2,(1-p)*1.4,(1-p)*2.5);bizBox.scale.setScalar(1-p*.85);bizBox.rotation.set(t*.8,t*1.1,0)}
- if(stage===1&&st<.05)burstT=t;
- const out=stage===0?0:Math.min((stage===1?st:9)/1.4,1);
- // ring rotation: focus active service at front (angle pointing to camera = +z => angle PI/2 in our param)
- if(stage>=2&&!drag){const idx=svcIndex(stage);ringTarget=-(idx/5)*Math.PI*2;let d=ringTarget-ringAng;d=Math.atan2(Math.sin(d),Math.cos(d));ringAng+=d*k5}
- else if(!drag)ringAng+=dt*.25;
- svc.forEach((g,i)=>{const a=g.userData.a+ringAng+Math.PI/2;const e=ease(out);const r=RAD*e;g.position.set(Math.cos(a)*r,Math.sin(t*1.2+i)*.12*e,Math.sin(a)*r);
-  const front=Math.max(0,Math.sin(a));const focus=stage>=2&&svcIndex(stage)===i;g.userData.f=(g.userData.f||0)+((focus?1:0)-(g.userData.f||0))*k3;
-  const s=(mob?.6:.78)*e*(1+g.userData.f*(mob?.8:.55));g.scale.setScalar(Math.max(s,.001));
-  g.lookAt(C.position.x,root.position.y+g.position.y,C.position.z);g.userData.tick&&g.userData.tick(t)});
- // core
- const pulse=stage===1?Math.max(0,1-st*1.4):0;coreMesh.scale.setScalar(1+Math.sin(t*3)*.04+pulse*.6+(stage===0?introP*.25:0));coreMesh.material.emissiveIntensity=1.4+pulse*4+Math.sin(t*2)*.3;
- shell.rotation.set(t*.2,t*.3,0);ring1.rotation.z=t*.5;ring2.rotation.y=t*.4;coreLight.intensity=30+pulse*120;coreLight.position.copy(root.position);
- // burst
- const bt=t-burstT;const bp=bg.attributes.position.array;if(bt<2.2){for(let i=0;i<BN;i++){bp[i*3]=bvel[i].x*bt*(1-bt*.18);bp[i*3+1]=bvel[i].y*bt*(1-bt*.18);bp[i*3+2]=bvel[i].z*bt*(1-bt*.18)}bg.attributes.position.needsUpdate=true;burst.material.opacity=Math.max(0,1-bt/2.2)}else burst.material.opacity=0;
- pts.rotation.y=t*.03;
- // camera: scroll pulls back + dims for form
- const sp=Math.min(scrollY/innerHeight,1);
- const cz=(mob?8.7:8.2)+sp*4,cy=(mob?2.6:1.4)+gy*.3+sp*1.5;C.position.set(gx*.6,cy,cz);C.lookAt(root.position.x*(1-sp*.2),root.position.y*(mob?.55:.8),0);
- bloom.strength=.95-sp*.4;R.toneMappingExposure=1.1-sp*.45;
- comp.render()})();
+P.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&window.jumpTo)window.jumpTo(+b.dataset.i)});
 </script>
+<script type="module" src="app.js"></script>
 </body>
 </html>
