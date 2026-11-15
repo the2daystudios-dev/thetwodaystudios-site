@@ -20,36 +20,28 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{background:var(--red) url(redpaper.jpg) 0 0/300px;color:var(--cream);font-family:A,"Arial Narrow",Arial,sans-serif;font-weight:500}
 body{overflow-x:hidden}
-#scene{position:relative;height:min(56svh,540px);margin-top:calc(64px + env(safe-area-inset-top))}
-#gl{display:block;width:100%;height:100%;opacity:0;transition:opacity .6s;touch-action:pan-y}
-.ready #gl{opacity:1}
-#scene .hint{position:absolute;left:0;right:0;bottom:4px;text-align:center;font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);opacity:.8;pointer-events:none}
 .d{font-weight:900;font-stretch:68%;text-transform:uppercase;line-height:.9;letter-spacing:-.005em}
-nav{position:fixed;background:var(--red) url(redpaper.jpg) 0 0/300px;box-shadow:0 2px 0 rgba(0,0,0,.25);top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 16px 10px}
-nav img{height:46px;transform:rotate(-4deg);filter:drop-shadow(0 8px 10px rgba(60,0,0,.4))}
+nav{position:fixed;height:calc(60px + env(safe-area-inset-top));background:var(--red) url(redpaper.jpg) 0 0/300px;box-shadow:0 2px 0 rgba(0,0,0,.25);top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:env(safe-area-inset-top) 16px 0}
+nav img{height:42px;transform:rotate(-4deg);filter:drop-shadow(0 8px 10px rgba(60,0,0,.4))}
 .btn{display:inline-block;background:var(--cream);color:var(--ink);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:12px 18px;font-weight:900;font-stretch:75%;text-transform:uppercase;letter-spacing:.01em;font-size:17px;text-decoration:none;cursor:pointer;transition:transform .08s,box-shadow .08s;font-family:inherit}
 .btn:active{transform:translate(5px,5px);box-shadow:1px 1px 0 var(--ink)}
 .btn.big{font-size:21px;padding:16px 26px;box-shadow:7px 7px 0 var(--ink)}
-#stage{position:relative;z-index:2}
-.copy{padding:18px 18px 10px;max-width:640px;margin:0 auto;text-align:center}
-.copy .pills,.copy .go{justify-content:center}
-.kick{font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
-.num{font-weight:900;font-stretch:75%;font-size:15px;letter-spacing:.08em;text-transform:uppercase;min-height:18px;margin-bottom:6px;color:var(--cream)}
-h1{font-size:clamp(36px,10.4vw,48px);min-height:1.85em;color:var(--cream)}
-h1 .w{display:inline-block;margin-right:.16em;opacity:0;transform:rotate(-14deg) scale(1.35);transition:transform .7s cubic-bezier(.2,1.6,.4,1),opacity .25s}
-h1 .w.in{opacity:1;transform:none}
-h1 .tag{position:relative;isolation:isolate;color:var(--ink);padding:.06em .16em .02em;margin-right:.16em;display:inline-block}
+#scene{position:relative;height:clamp(310px,46svh,500px);margin-top:calc(60px + env(safe-area-inset-top))}
+#gl{display:block;width:100%;height:100%;opacity:0;transition:opacity .6s;pointer-events:none}
+.ready #gl{opacity:1}
+.hero{max-width:620px;margin:0 auto;padding:4px 22px 0;text-align:center}
+.kick{font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+h1{font-size:clamp(46px,13vw,60px);color:var(--cream);word-spacing:.14em}
+h1 .w{display:inline-block;margin:0 .08em;animation:slap .7s cubic-bezier(.2,1.6,.4,1) both}
+h1 .w:nth-child(2){animation-delay:.08s}h1 .w:nth-child(3){animation-delay:.16s}h1 .w:nth-child(4){animation-delay:.32s}
+@keyframes slap{from{opacity:0;transform:rotate(-14deg) scale(1.35)}to{opacity:1;transform:none}}
+h1 .tag{position:relative;isolation:isolate;color:var(--ink);padding:.07em .16em .02em;margin-top:.08em}
 h1 .tag::before,h1 .tag::after{content:"";position:absolute;inset:0;clip-path:polygon(0 0,calc(100% - .32em) 0,100% .32em,100% 100%,0 100%)}
 h1 .tag::after{background:var(--ink);transform:translate(.09em,.09em);z-index:-2}
 h1 .tag::before{background:var(--cream);box-shadow:inset 0 0 0 3px var(--ink);z-index:-1}
-.sub{font-size:16px;line-height:1.45;color:var(--dim);margin-top:12px;min-height:2.9em;transition:opacity .3s}
-.pills{display:flex;gap:7px;margin-top:16px;flex-wrap:wrap;pointer-events:auto}
-.pills button{font-family:inherit;font-weight:900;font-stretch:75%;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--cream);background:transparent;border:2px solid var(--cream);padding:7px 11px;cursor:pointer}
-.pills button.on{background:var(--cream);color:var(--ink);border-color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
-.go{margin-top:18px;pointer-events:auto;display:flex;gap:14px;align-items:center}
-.go small{color:var(--dim);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.sub{font-size:16px;line-height:1.5;color:var(--dim);margin:16px auto 0;max-width:34ch}
 /* form = cream print card */
-#start{position:relative;z-index:3;display:flex;justify-content:center;padding:34px 16px 40px;scroll-margin-top:70px}
+#start{position:relative;z-index:3;display:flex;justify-content:center;padding:36px 16px 44px;scroll-margin-top:72px}
 .card{width:100%;max-width:540px;background:var(--cream) url(cream.jpg) 0 0/256px;color:var(--ink);border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);padding:26px 20px 28px;position:relative}
 .card::before{content:"";position:absolute;top:-3px;right:-3px;width:46px;height:46px;background:var(--red);clip-path:polygon(0 0,100% 100%,100% 0)}
 .card h2{font-size:clamp(46px,13vw,68px)}
@@ -74,9 +66,10 @@ h1 .tag::before{background:var(--cream);box-shadow:inset 0 0 0 3px var(--ink);z-
 footer{position:relative;z-index:3;text-align:center;color:var(--dim);font-size:13px;padding:0 20px calc(26px + env(safe-area-inset-bottom));line-height:1.8}
 footer a{color:var(--cream);font-weight:800}
 @media(min-width:900px){
- #scene{height:min(56vh,600px)}
- h1{font-size:clamp(60px,5.6vw,92px)}
+ #scene{height:clamp(380px,54vh,600px)}
+ h1{font-size:clamp(64px,6vw,88px)}
  .card{padding:40px}
+}
 }
 @media(prefers-reduced-motion:reduce){h1 .w{transition:none}}
 </style>
@@ -84,14 +77,11 @@ footer a{color:var(--cream);font-weight:800}
 <body>
 <nav><a href="#top"><img src="logo2ds.webp" alt="2 DAY STUDIOS." width="40" height="47"></a><a class="btn" href="#start">Start a project →</a></nav>
 <section id="stage">
-  <div id="scene"><canvas id="gl" aria-hidden="true"></canvas><div class="hint">drag to spin ↔</div></div>
-  <div class="copy">
+  <div id="scene"><canvas id="gl" aria-hidden="true"></canvas></div>
+  <div class="hero">
     <div class="kick">2 DAY STUDIOS. · AI-native creative agency</div>
-    <div class="num" id="num"></div>
-    <h1 class="d" id="h"></h1>
-    <p class="sub" id="sub"></p>
-    <div class="pills" id="pills"></div>
-    <div class="go"><a class="btn big" href="#start">Start a project →</a><small>Free brand audit</small></div>
+    <h1 class="d"><span class="w">Brands</span><span class="w">people</span><br><span class="w tag">stop for.</span></h1>
+    <p class="sub">Reels, branding, websites, ads and AI automation. One studio that builds all of it, made to work together.</p>
   </div>
 </section>
 <section id="start">
@@ -131,23 +121,6 @@ f.addEventListener('submit',ev=>{ev.preventDefault();err.textContent='';const d=
  btn.disabled=true;btn.textContent='Sending…';let sent=false;try{sent=navigator.sendBeacon&&navigator.sendBeacon(ENDPOINT,body)}catch(e){}
  if(!sent)fetch(ENDPOINT,{method:'POST',mode:'no-cors',body,keepalive:true}).catch(()=>{});
  setTimeout(()=>{f.style.display='none';document.getElementById('ok').style.display='block';if(window.fbq)fbq('track','Lead')},400)});
-window.STORY=[
- {n:"",h:"Your business [goes in.]",s:"Your product. Your story. Your goals.",d:2600},
- {n:"",h:"Everything it needs [comes out.]",s:"One studio for all of it, built to work together.",d:2400},
- {n:"01 · Reels",h:"Content that [stops the scroll.]",s:"Story-first reels: scripted, voiced, edited. Even animated series like 1 Baje Wala.",d:3800},
- {n:"02 · Branding",h:"A brand they [remember.]",s:"Logo, colour, type and voice. One look everywhere you show up.",d:3800},
- {n:"03 · Websites",h:"Sites that turn visits [into leads.]",s:"Fast, custom, made for phones. Enquiries land straight in your inbox.",d:3800},
- {n:"04 · Ads",h:"Ads that spend on [what works.]",s:"Meta ads built on proof: find what already performs, then scale it.",d:3800},
- {n:"05 · AI automation",h:"Replies at 1&nbsp;AM. [Without you.]",s:"Comment-to-DM, instant replies and lead capture, running while you sleep.",d:3800}];
-const P=document.getElementById('pills');P.innerHTML=['Reels','Branding','Websites','Ads','AI'].map((t,i)=>`<button data-i="${i+2}">${t}</button>`).join('');
-let cur=-1;window.showStage=i=>{if(i===cur)return;cur=i;const s=STORY[i];document.getElementById('num').textContent=s.n;
- const h=document.getElementById('h');
- h.innerHTML=s.h.replace(/\[(.*?)\]|([^\s\[]+)/g,(m,tag,w)=>tag?`<span class="w tag">${tag}</span>`:`<span class="w">${w}</span>`);
- [...h.querySelectorAll('.w')].forEach((w,k)=>setTimeout(()=>w.classList.add('in'),30+k*70));
- const sb=document.getElementById('sub');sb.style.opacity=0;setTimeout(()=>{sb.textContent=s.s;sb.style.opacity=1},150);
- P.querySelectorAll('button').forEach(b=>b.classList.toggle('on',+b.dataset.i===i));};
-showStage(0);
-P.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&window.jumpTo)window.jumpTo(+b.dataset.i)});
 </script>
 <script type="module" src="app.js"></script>
 </body>
